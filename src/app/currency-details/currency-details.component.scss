@@ -1,0 +1,15 @@
+.currency-details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+
+  mat-card {
+    width: 100%;
+    gap: 20px;
+
+    mat-card-header {
+      justify-content: center;
+    }
+  }
+}

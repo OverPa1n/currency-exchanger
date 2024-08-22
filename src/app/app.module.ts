@@ -1,14 +1,21 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
+import {CurrencyDetailsComponent} from './currency-details/currency-details.component';
+import {CurrencyConversionComponent} from "./currency-conversion/currency-conversion.component";
+import {HttpClientModule} from "@angular/common/http";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
-    AppComponent
-  ],
+    AppComponent],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    CurrencyDetailsComponent,
+    CurrencyConversionComponent,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

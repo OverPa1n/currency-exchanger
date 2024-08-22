@@ -1,0 +1,22 @@
+<div class="currency-conversion-container">
+  <form [formGroup]="currencyConversionForm">
+    <mat-form-field>
+      <mat-label>Amount</mat-label>
+      <input matInput formControlName="amount"/>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Convert to</mat-label>
+      <mat-select formControlName="currency">
+        <mat-option *ngFor="let currency of currenciesToSelect" [value]="currency">
+          {{currency.title}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Result</mat-label>
+      <input matInput formControlName="result" readonly/>
+    </mat-form-field>
+  </form>
+</div>

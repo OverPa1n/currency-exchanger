@@ -1,0 +1,14 @@
+<div class="currency-details-container">
+  <h1>Currency rates for today</h1>
+  <ng-container *ngFor="let currency of currencies">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{currency.txt}} - {{currency.rate}}</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <app-currency-conversion [currentCurrency]="currency" [currencies]="currencies"></app-currency-conversion>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+</div>
