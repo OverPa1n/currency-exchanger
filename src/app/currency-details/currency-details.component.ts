@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Currency} from "../models/currency";
-import {JsonPipe, NgForOf} from "@angular/common";
+import {NgForOf} from "@angular/common";
 import {MatCardModule} from "@angular/material/card";
 import {CurrencyConversionComponent} from "../currency-conversion/currency-conversion.component";
 
@@ -9,7 +9,6 @@ import {CurrencyConversionComponent} from "../currency-conversion/currency-conve
   selector: 'app-currency-details',
   templateUrl: './currency-details.component.html',
   imports: [
-    JsonPipe,
     MatCardModule,
     NgForOf,
     CurrencyConversionComponent

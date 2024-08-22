@@ -9,7 +9,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
-    AppComponent],
+    AppComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -17,7 +18,6 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     CurrencyConversionComponent,
     HttpClientModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
