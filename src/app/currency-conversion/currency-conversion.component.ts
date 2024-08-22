@@ -1,9 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormControl, FormGroup, ReactiveFormsModule, ValidatorFn, Validators} from "@angular/forms";
 import {CURRENCY, Currency, CurrencyToSelect} from "../models/currency";
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {filter} from "rxjs";
 
 @Component({
@@ -15,7 +15,8 @@ import {filter} from "rxjs";
     ReactiveFormsModule,
     MatInputModule,
     MatSelectModule,
-    NgForOf
+    NgForOf,
+    NgIf
   ]
 })
 export class CurrencyConversionComponent implements OnInit {
@@ -30,12 +31,21 @@ export class CurrencyConversionComponent implements OnInit {
     this.subscribeToFormChanges();
   }
 
+  amountValidator(form: FormGroup) {
+    const amountControl = form.get('amount');
+    const amountControlValue = amountControl?.value;
+
+    if (isNaN(amountControlValue) || amountControlValue < 0) {
+      amountControl?.setErrors({invalidValue: true});
+    }
+  }
+
   private initForm() {
     return new FormGroup({
       amount: new FormControl(0, Validators.required),
       currency: new FormControl(null, Validators.required),
       result: new FormControl(0)
-    })
+    }, {validators: this.amountValidator as ValidatorFn});
   }
 
   private initCurrenciesToSelect() {

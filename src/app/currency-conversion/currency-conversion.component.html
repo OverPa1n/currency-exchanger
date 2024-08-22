@@ -3,6 +3,14 @@
     <mat-form-field>
       <mat-label>Amount</mat-label>
       <input matInput formControlName="amount"/>
+
+      <mat-error *ngIf="currencyConversionForm.get('amount')?.hasError('invalidValue')">
+        Amount should be 0 or greater than 0 and only numbers are allowed.
+      </mat-error>
+
+      <mat-error *ngIf="currencyConversionForm.get('amount')?.hasError('required')">
+        Amount is required.
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field>
